@@ -1,0 +1,35 @@
+{
+  "name": "projeto",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "prisma:local:pull": "npx prisma db pull --schema=./prisma/schema.local.prisma",
+    "prisma:local:push": "npx prisma db push --schema=./prisma/schema.local.prisma",
+    "prisma:local:generate": "npx prisma generate --schema=./prisma/schema.local.prisma",
+    "prisma:local:studio": "npx prisma studio --schema=./prisma/schema.local.prisma",
+    "prisma:pull": "npx prisma db pull --schema=./prisma/schema.prisma",
+    "prisma:push": "npx prisma db push --schema=./prisma/schema.prisma",
+    "prisma:generate": "npx prisma generate --schema=./prisma/schema.prisma"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.0",
+    "prisma": "^5.22.0",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "@types/cors": "^2.8.17",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "uuid": "^11.0.3",
+    "zod": "^3.23.8"
+  }
+}

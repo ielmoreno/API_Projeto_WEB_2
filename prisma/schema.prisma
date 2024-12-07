@@ -1,0 +1,49 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["typedSql"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model consulta {
+  id            Int      @id @default(autoincrement()) @db.UnsignedInt
+  paciente_id   Int      @db.UnsignedInt
+  doctor_id     Int      @db.UnsignedInt
+  data_consulta DateTime @db.DateTime
+  doctor        doctor   @relation(fields: [doctor_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "consulta_ibfk_1")
+  paciente      paciente @relation(fields: [paciente_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "consulta_ibfk_2")
+
+  @@index([doctor_id], map: "consulta_FKIndex1")
+  @@index([paciente_id], map: "consulta_FKIndex2")
+}
+
+model doctor {
+  id              Int        @id @default(autoincrement()) @db.UnsignedInt
+  nome            String     @db.VarChar(120)
+  sexo            Int        @db.UnsignedInt
+  endereco        String     @db.VarChar(250)
+  data_nascimento DateTime   @db.DateTime
+  email           String?    @db.VarChar(200)
+  crm             String     @db.VarChar(11) @unique
+  uf              String     @db.Char(2)
+  especialidade_1 String?    @db.VarChar(250)
+  especialidade_2 String?    @db.VarChar(250)
+  cpf             String     @db.VarChar(14) @unique
+  telefone        String     @db.VarChar(14)
+  consulta        consulta[]
+}
+
+model paciente {
+  id              Int        @id @default(autoincrement()) @db.UnsignedInt
+  nome            String     @db.VarChar(120)
+  sexo            Int        @db.UnsignedInt 
+  cpf             String     @db.VarChar(14) @unique
+  endereco        String?    @db.VarChar(250)
+  data_nascimento DateTime   @db.DateTime
+  telefone        String     @db.VarChar(14)
+  email           String?    @db.VarChar(200)
+  consulta        consulta[]
+}

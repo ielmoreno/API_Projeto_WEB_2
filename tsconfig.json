@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "target": "ES6", // Define a versão do JavaScript para a qual o TypeScript será transpilado (ES6).
+      "module": "commonjs", // Especifica o sistema de módulos a ser usado no JavaScript transpilado (commonjs é padrão em Node.js).
+      "strict": true, // Ativa todas as verificações de tipo estritas do TypeScript (modo estrito).
+      "esModuleInterop": true, // Permite a interoperação entre módulos ES6 e CommonJS, facilitando a importação padrão e a importação com namespace.
+      "skipLibCheck": true, // Ignora a verificação de tipo dos arquivos de declaração (arquivos .d.ts) para melhorar a velocidade da compilação.
+      "forceConsistentCasingInFileNames": true, // Impede discrepâncias na utilização de letras maiúsculas/minúsculas nos nomes de arquivos.
+      "outDir": "./dist" // Especifica o diretório de saída para os arquivos JavaScript compilados.
+    },
+    "include": ["src/**/*.ts"], // Inclui todos os arquivos TypeScript (.ts) dentro do diretório src e subdiretórios.
+    "exclude": ["node_modules"] // Exclui o diretório node_modules da compilação.
+  }
