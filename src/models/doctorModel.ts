@@ -88,7 +88,9 @@ export const getByCrm = async (crm: string) => {
 export const getByEspecialidade1 = async (especialidade: string) => {
     const doctors = await prisma.doctor.findMany({
         where: {
-           especialidade_1: especialidade,
+           especialidade_1: {
+            contains:especialidade,
+           }
         },
         select: {
             id: true,

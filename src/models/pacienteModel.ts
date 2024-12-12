@@ -32,7 +32,8 @@ export const getAll = async () => {
             id: true,
             nome: true,
             sexo: true,
-            telefone: true
+            telefone: true,
+            cpf:true
         }
     })
     return paciente
