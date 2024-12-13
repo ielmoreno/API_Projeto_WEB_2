@@ -16,9 +16,8 @@ const createPaciente = async (req: Request,res: Response,next: NextFunction): Pr
         }
 
         const result = await create(pacienteValidated.data) 
-
-        if(!result)
-            console.log(result)
+        console.log(result)
+        if(!result.id)
             return res.status(500).json({
                 error: "Erro ao criar paciente"
             })

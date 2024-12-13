@@ -40,6 +40,11 @@ export const getAll = async () => {
             data_consulta:true,
             doctor_id: true,
             paciente_id: true,
+            doctor:{
+                select:{
+                    
+                }
+            }
         }
     })
     
